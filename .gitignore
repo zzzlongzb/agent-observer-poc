@@ -1,0 +1,22 @@
+/target/
+/hud/**/bin/
+/hud/**/obj/
+.tmp/
+/artifacts/
+# R3 stream-pressure logs are 14 MiB each (above the VCS snapshot cap).
+# R4 keeps stream logs under 1 MiB and still records truncation in JSON.
+/docs/evidence/daily-use-local-package-v0.1-r3-safety/fixture-stream-stdout.log
+/docs/evidence/daily-use-local-package-v0.1-r3-safety/fixture-stream-stderr.log
+# --- Release Safety Baseline Round A2.1: public-source-boundary hardening ---
+# These rules only stop NEW files under these paths from being auto-snapshotted
+# by Jujutsu. They do NOT remove already-tracked files (e.g. docs/evidence/**)
+# from existing snapshots. The public snapshot must be produced by a separate
+# allowlist exporter (default = exclude), never by copying this working copy.
+# See release/public-source-boundary-v1.json and docs/public-source-boundary-v1.md.
+# /target/ and /artifacts/ were already present above and are kept as-is.
+/docs/evidence/
+/.workbuddy-ai/
+/pro-liveness-audit-bundle/
+/grok-pi-adapter-audit-bundle/
+/.tmp/
+/prompt_r3_safety.md
